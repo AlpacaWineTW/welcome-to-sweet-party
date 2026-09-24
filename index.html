@@ -1,0 +1,510 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Alpaca甜心趴開張中</title><style>
+:root{--cream:#fff7e9;--wine:#C65A2E;--ink:#3F2B24}*{box-sizing:border-box}body{margin:0;font-family:"Noto Sans TC","PingFang TC",sans-serif;color:var(--ink);background:#F4D7C8;overflow:hidden}.app{height:100dvh;max-width:520px;margin:auto;position:relative;background:var(--cream);overflow:hidden}.screen{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;pointer-events:none;transform:translateY(8px);transition:.4s;background:var(--cream)}.screen.active{opacity:1;pointer-events:auto;transform:none}.hero{width:100%;aspect-ratio:1/1;flex:0 0 auto;display:grid;place-items:center;text-align:center;background:linear-gradient(160deg,#A94727,#D87343 60%,#F0B58F);color:white;position:relative;overflow:hidden}.alpaca{font-size:clamp(84px,20vw,108px);animation:float 3s ease-in-out infinite}.heroTitle{font-size:clamp(26px,7vw,31px);margin:12px 0 3px;font-weight:900}.heroSub{font-size:clamp(15px,4.1vw,17px);margin:0 0 14px}.homeActions{justify-content:center}.homeActions .btn{margin:auto 0}.content{flex:1;min-height:0;padding:22px 24px max(24px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;text-align:center}.title{font-size:clamp(26px,7vw,31px);margin:6px 0;color:var(--wine);font-weight:900}.sub{font-size:clamp(15px,4.1vw,17px);margin:3px 0 18px}.btn{width:100%;max-width:360px;border:0;border-radius:999px;background:var(--wine);color:#fff;padding:16px 20px;font-size:clamp(15px,4.1vw,17px);font-weight:800;box-shadow:0 8px 18px #C65A2E2c}.rules{justify-content:center;padding:38px}.typebox{font-size:clamp(19px,5.3vw,23px);line-height:1.8;font-weight:800;color:var(--wine);min-height:250px;display:flex;align-items:center;justify-content:center;text-align:center;white-space:pre-line}.fadebtn{opacity:0;transform:translateY(12px);transition:.5s}.fadebtn.show{opacity:1;transform:none}.gameVisual{width:100%;aspect-ratio:1/1;flex:0 0 auto;display:grid;place-items:center;background:linear-gradient(#F2B18F,#F8DDCB);position:relative;overflow:hidden}.gameVisual .alpaca{animation:none}.bubble{position:absolute;top:12%;right:10%;background:white;border:2px solid var(--wine);padding:9px 13px;border-radius:18px;color:var(--wine);font-weight:800}.choices{gap:10px;padding-top:20px;position:relative;overflow:hidden}.prompt,.choice{opacity:0;transform:translateY(10px)}#game.active .prompt{animation:riseIn .42s ease .08s forwards}#game.active .choice:nth-of-type(1){animation:riseIn .4s ease .16s forwards}#game.active .choice:nth-of-type(2){animation:riseIn .4s ease .23s forwards}#game.active .choice:nth-of-type(3){animation:riseIn .4s ease .30s forwards}#game.active .choice:nth-of-type(4){animation:riseIn .4s ease .37s forwards}.promptHeart{display:inline-block;animation:heartBeat 2.6s ease-in-out infinite}.floatDecor{position:absolute;inset:0;pointer-events:none;overflow:hidden}.floatDecor span{position:absolute;color:#B84E28;opacity:0;font-size:clamp(19px,5.4vw,24px);font-weight:700;animation:drift 5.4s ease-in-out infinite}.floatDecor span:nth-child(1){left:7%;top:10%;font-size:clamp(19px,5.3vw,23px);animation-delay:.2s}.floatDecor span:nth-child(2){left:68%;top:13%;font-size:clamp(16px,4.5vw,19px);animation-delay:1.0s}.floatDecor span:nth-child(3){left:82%;top:39%;font-size:clamp(17px,4.9vw,21px);animation-delay:2.1s}.floatDecor span:nth-child(4){left:12%;top:44%;font-size:clamp(18px,5.1vw,22px);animation-delay:3.0s}.floatDecor span:nth-child(5){left:72%;top:72%;font-size:clamp(15px,4.3vw,18px);animation-delay:4.0s}.floatDecor span:nth-child(6){left:24%;top:80%;font-size:clamp(16px,4.5vw,19px);animation-delay:2.6s}.floatDecor span:nth-child(7){left:47%;top:25%;font-size:clamp(14px,3.8vw,16px);animation-delay:3.7s}.floatDecor span:nth-child(8){left:48%;top:88%;font-size:clamp(15px,4.1vw,17px);animation-delay:1.7s}.prompt{font-size:clamp(18px,5.1vw,22px);color:var(--wine);margin:0 0 12px}.choice{width:100%;border:2px solid #D07A55;background:#FFF9F3;border-radius:16px;padding:13px;font-size:clamp(15px,4.1vw,17px);color:var(--wine);font-weight:800}.connect{justify-content:center;align-items:center;text-align:center;background:radial-gradient(circle,#fff,#F8E0D2)}.connect h2{color:var(--wine);font-size:clamp(23px,6.3vw,28px)}.wave{font-size:clamp(26px,7vw,31px);letter-spacing:8px;color:var(--wine);animation:pulse .7s infinite alternate;margin:18px}.resultImage{width:100%;aspect-ratio:1/1;flex:0 0 auto;display:grid;place-items:center;overflow:hidden}.resultImage.success{background:linear-gradient(160deg,#F5C4A6,#FFF0D8)}.resultImage.fail{background:linear-gradient(160deg,#E8B395,#F5D9C7)}.resultImage .alpaca{animation:none;font-size:clamp(88px,21vw,112px)}.resultInfo{flex:1;min-height:0;padding:22px 24px max(22px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--cream)}.resultInfo h2{font-size:clamp(23px,6.1vw,27px);color:var(--wine);margin:2px 0 12px}.resultInfo p{font-size:clamp(15px,4.1vw,17px);line-height:1.55;margin:3px 0}.answer{font-weight:900;color:#B94D27}.resultInfo .btn{margin-top:20px;flex:0 0 auto}.friendPrompt{font-size:clamp(13px,3.6vw,15px)!important;color:#A85C3C;margin:16px 0 0!important;font-weight:700;letter-spacing:.02em}@keyframes float{50%{transform:translateY(-8px)}}@keyframes riseIn{to{opacity:1;transform:none}}@keyframes heartBeat{0%,78%,100%{transform:scale(1)}84%{transform:scale(1.15)}90%{transform:scale(1)}}@keyframes drift{0%{opacity:0;transform:translate(0,18px) rotate(0)}18%{opacity:.38}55%{opacity:.32;transform:translate(10px,-8px) rotate(8deg)}82%{opacity:.25}100%{opacity:0;transform:translate(-5px,-34px) rotate(-7deg)}}@keyframes pulse{to{transform:scale(1.12);opacity:.55}}@media(max-height:720px){.homeActions{padding-top:10px;padding-bottom:10px}.homeActions .btn{padding:13px 20px}}
+
+.result-replay { margin-top: clamp(42px, 10vw, 58px) !important; }
+
+/* V22：橫式手機版
+   直式維持原版；橫式改為左圖右內容，並允許垂直捲動作為保底。 */
+@media (orientation: landscape) {
+  html, body {
+    min-height: 100%;
+    height: auto;
+    overflow-y: auto;
+    background: var(--cream);
+  }
+
+  body { overflow-x: hidden; }
+
+  .app {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .screen {
+    position: relative;
+    inset: auto;
+    display: none;
+    width: 100%;
+    min-height: 100dvh;
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .screen.active {
+    display: flex;
+    pointer-events: auto;
+  }
+
+  /* 首頁：左側完整直式 KV，右側 CTA。 */
+  #home {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  #home .hero {
+    width: auto;
+    height: 100dvh;
+    max-width: 62vw;
+    aspect-ratio: 1080 / 1500;
+    flex: 0 0 auto;
+  }
+
+  #home .content.homeActions {
+    min-width: 280px;
+    justify-content: center;
+    padding: clamp(18px, 3vw, 34px);
+  }
+
+  /* 遊戲頁：左圖右選項。圖片依高度縮放，不再跟橫向寬度一起暴增。 */
+  #game {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  #game .gameVisual {
+    width: min(50vw, 100dvh);
+    height: min(50vw, 100dvh);
+    max-height: 100dvh;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  #game .choices {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 100dvh;
+    justify-content: center;
+    padding: clamp(14px, 2.2vw, 24px);
+    gap: clamp(7px, 1.3vh, 11px);
+  }
+
+  #game .prompt {
+    margin-top: 0;
+    margin-bottom: clamp(4px, 1vh, 9px);
+    font-size: clamp(19px, 3vw, 24px);
+  }
+
+  #game .choice {
+    padding-top: clamp(10px, 1.7vh, 14px);
+    padding-bottom: clamp(10px, 1.7vh, 14px);
+  }
+
+  /* 成功／失敗結果：左圖右結果文字。 */
+  #success, #fail {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  #success .resultImage, #fail .resultImage {
+    width: min(50vw, 100dvh);
+    height: min(50vw, 100dvh);
+    max-height: 100dvh;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    align-self: center;
+  }
+
+  #success .resultInfo, #fail .resultInfo {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 100dvh;
+    justify-content: center;
+    padding: clamp(16px, 2.5vw, 30px);
+  }
+
+  #success .resultInfo h2, #fail .resultInfo h2 {
+    margin-top: 0;
+  }
+
+  .result-replay {
+    margin-top: clamp(26px, 5vh, 42px) !important;
+  }
+
+  /* 純文字頁：橫式縮短上下留白並保持置中。 */
+  #rules, #connect {
+    min-height: 100dvh;
+    justify-content: center;
+    overflow-y: auto;
+    padding-top: clamp(18px, 4vh, 32px);
+    padding-bottom: clamp(18px, 4vh, 32px);
+  }
+
+  #rules .typebox {
+    min-height: 0;
+  }
+}
+
+/* 特別矮的橫式手機再收一點，仍可捲動，不裁內容。 */
+@media (orientation: landscape) and (max-height: 430px) {
+  #game .choices,
+  #success .resultInfo,
+  #fail .resultInfo {
+    min-height: 100dvh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #game .choice {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  #success .resultInfo p,
+  #fail .resultInfo p {
+    line-height: 1.4;
+  }
+}
+
+
+/* V23：橫式跳轉頁 CTA 置中並縮小 */
+@media (orientation: landscape) {
+  #rules .primary,
+  #rules .cta,
+  #rules button {
+    width: min(42vw, 420px) !important;
+    max-width: 420px !important;
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: clamp(11px, 2vh, 15px) !important;
+    padding-bottom: clamp(11px, 2vh, 15px) !important;
+    font-size: clamp(16px, 2.3vw, 19px) !important;
+  }
+}
+
+
+/* V24：橫式跳轉頁整組縮小 */
+@media (orientation: landscape) {
+  #rules {
+    padding-top: clamp(12px, 2.5vh, 22px) !important;
+    padding-bottom: clamp(12px, 2.5vh, 22px) !important;
+  }
+
+  #rules .typebox {
+    transform: scale(0.80);
+    transform-origin: center center;
+    width: 100%;
+  }
+
+  #rules .primary,
+  #rules .cta,
+  #rules button {
+    width: min(33vw, 340px) !important;
+    max-width: 340px !important;
+    padding-top: clamp(9px, 1.6vh, 12px) !important;
+    padding-bottom: clamp(9px, 1.6vh, 12px) !important;
+    font-size: clamp(14px, 1.9vw, 17px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+
+/* V25：橫式跳轉頁整組略微上移 */
+@media (orientation: landscape) {
+  #rules .typebox {
+    transform: translateY(-4.5vh) scale(0.80) !important;
+    transform-origin: center center !important;
+  }
+}
+
+
+/* V26：首頁主圖統一為 1080×1080 */
+@media (orientation: landscape) {
+  #home .hero {
+    width: min(50vw, 100dvh) !important;
+    height: min(50vw, 100dvh) !important;
+    max-width: none !important;
+    max-height: 100dvh !important;
+    aspect-ratio: 1 / 1 !important;
+    flex: 0 0 auto !important;
+    align-self: center;
+  }
+
+  #home .content.homeActions {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 100dvh;
+    justify-content: center;
+  }
+}
+
+
+/* V29：直式跳轉頁整組略微上移 */
+@media (orientation: portrait) {
+  #rules .typebox {
+    transform: translateY(-3.5vh);
+  }
+}
+
+
+/* V30：全站預留底部 10% 警語區（暫時色塊） */
+:root {
+  --warning-h: 10dvh;
+  --content-h: 90dvh;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.app {
+  height: var(--content-h) !important;
+  min-height: var(--content-h) !important;
+  max-height: var(--content-h) !important;
+  overflow: hidden;
+}
+
+.screen {
+  height: var(--content-h) !important;
+  min-height: var(--content-h) !important;
+  max-height: var(--content-h) !important;
+}
+
+.alcohol-warning {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  height: var(--warning-h);
+  min-height: var(--warning-h);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d96a32;
+  color: #fff8ee;
+  border-top: 2px solid rgba(91, 45, 25, .28);
+  font-size: clamp(12px, 3.2vw, 16px);
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+/* 純文字頁的置中基準也改為警語上方的 90% 區域 */
+#rules, #connect {
+  height: var(--content-h) !important;
+  min-height: var(--content-h) !important;
+  max-height: var(--content-h) !important;
+}
+
+/* 橫式：所有左右版型只使用上方 90dvh，警語固定在最下方 10dvh */
+@media (orientation: landscape) {
+  html, body {
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+  }
+
+  .app {
+    height: var(--content-h) !important;
+    min-height: var(--content-h) !important;
+    max-height: var(--content-h) !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .screen,
+  #rules,
+  #connect {
+    height: var(--content-h) !important;
+    min-height: var(--content-h) !important;
+    max-height: none !important;
+  }
+
+  #home .hero,
+  #game .gameVisual,
+  #success .resultImage,
+  #fail .resultImage {
+    width: min(50vw, var(--content-h)) !important;
+    height: min(50vw, var(--content-h)) !important;
+    max-height: var(--content-h) !important;
+  }
+
+  #home .content.homeActions,
+  #game .choices,
+  #success .resultInfo,
+  #fail .resultInfo {
+    min-height: var(--content-h) !important;
+  }
+
+  .alcohol-warning {
+    font-size: clamp(11px, 1.8vw, 15px);
+  }
+}
+
+
+/* V31：直式遊戲頁選項區微調 */
+@media (orientation: portrait) {
+  #game .choices {
+    transform: translateY(-1.8vh);
+  }
+
+  #game .choices .option {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+
+/* V32：直式遊戲頁只將問題文字往下微調，按鈕位置維持 V31 */
+@media (orientation: portrait) {
+  #game .prompt {
+    position: relative;
+    top: 1.2vh;
+  }
+}
+
+
+/* V33：首頁主視覺依方向使用不同版型。
+   目前仍是 HTML 暫代主視覺；之後可分別換成：
+   直式 1080×1500、橫式 1080×1080。 */
+@media (orientation: portrait) {
+  #home .hero {
+    width: 100% !important;
+    aspect-ratio: 1080 / 1500 !important;
+    height: auto !important;
+    max-height: calc(var(--content-h) - 96px) !important;
+    flex: 0 1 auto !important;
+  }
+  #home .content.homeActions {
+    flex: 1 1 auto !important;
+    min-height: 86px !important;
+  }
+}
+
+@media (orientation: landscape) {
+  #home .hero {
+    width: min(50vw, var(--content-h)) !important;
+    height: min(50vw, var(--content-h)) !important;
+    aspect-ratio: 1 / 1 !important;
+    flex: 0 0 auto !important;
+  }
+}
+
+
+/* V36：從 V34 重做短螢幕捲動保護
+   不改原本 flex / screen 尺寸邏輯，只讓「目前顯示的頁面」在內容超高時自行捲動。
+   底部 10% 警語仍固定不動。 */
+.screen.active {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+}
+.screen.active::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* 只有直式短畫面才把需要完整保留的內容改為不可壓縮，
+   讓超出的部分形成真正可捲動的內容高度，而不是被 flex 壓扁或裁掉。 */
+@media (orientation: portrait) and (max-height: 760px) {
+  #game.active .gameVisual,
+  #success.active .resultImage,
+  #fail.active .resultImage {
+    flex-shrink: 0 !important;
+  }
+
+  #game.active .choices,
+  #success.active .resultInfo,
+  #fail.active .resultInfo {
+    flex: 0 0 auto !important;
+    min-height: auto !important;
+  }
+
+  #game.active .choices {
+    padding-bottom: 24px !important;
+  }
+
+  #success.active .resultInfo,
+  #fail.active .resultInfo {
+    padding-bottom: 28px !important;
+  }
+
+  /* 純文字頁內容若真的超高，也由該頁本身自然捲動。 */
+  #rules.active,
+  #connect.active {
+    overflow-y: auto !important;
+  }
+}
+
+/* 橫式沿用 V34 原排版；極矮時 active page 仍可自然捲動。 */
+@media (orientation: landscape) {
+  .screen.active {
+    overflow-y: auto !important;
+  }
+}
+
+
+/* V37：跳轉頁 CTA 在手機、桌面窄視窗與橫式都強制水平置中 */
+#rules .cta {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  align-self: center !important;
+}
+
+
+/* V38：跳轉頁以「整個可用畫面」作為水平置中基準，
+   避免桌面窄視窗時文字容器寬度影響 CTA 位置。 */
+#rules {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  align-items: center !important;
+}
+
+#rules .typebox {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: center !important;
+  align-items: center !important;
+}
+
+#rules .typebox > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#rules .cta {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  align-self: center !important;
+}
+
+/* 保留原本橫式 CTA 的寬度設定，只修正置中基準 */
+@media (orientation: landscape) {
+  #rules .cta {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+</style></head><body><main class="app">
+<section id="home" class="screen active" data-portrait-art="1080x1500" data-landscape-art="1080x1080"><div class="hero"><div><div class="alpaca">🦙</div><h1 class="heroTitle">開趴就開 Alpaca</h1><p class="heroSub">歡迎來到甜心趴 ♡</p><b>✦ SWEET PARTY ✦</b></div></div><div class="content homeActions"><button class="btn" onclick="showRules()">進入甜心趴 ♡</button></div></section>
+<section id="rules" class="screen rules"><div id="typebox" class="typebox"></div><button id="ruleBtn" class="btn fadebtn" onclick="go('game')">心電感應猜猜看</button></section>
+<section id="game" class="screen"><div class="gameVisual"><div class="bubble">猜得到嗎？♡</div><div class="alpaca">🦙</div></div><div class="content choices"><div class="floatDecor" aria-hidden="true"><span>♡</span><span>✦</span><span>♡</span><span>✦</span><span>♡</span><span>✦</span><span>✦</span><span>♡</span></div><h2 class="prompt">羊駝今天想來點......</h2><button class="choice" onclick="choose(0)">草莓蛋糕</button><button class="choice" onclick="choose(1)">一杯甜酒</button><button class="choice" onclick="choose(2)">奶酥餅乾</button><button class="choice" onclick="choose(3)">葡萄果盤</button></div></section>
+<section id="connect" class="screen connect"><h2>心連心中……</h2><div class="wave">— ✦ — ♥ — ✦ —</div><p>正在連接羊駝的心</p></section>
+<section id="success" class="screen"><div class="resultImage success"><div class="alpaca">🦙</div></div><div class="resultInfo"><h2>心電感應成功 ✦</h2><p>猜中羊駝的心啦！</p><p><b>今天免收入場費，歡迎入場～</b></p><button class="btn result-replay" onclick="replay()">再玩一次</button><p class="friendPrompt">揪朋友一起來猜猜看 ♡</p></div></section>
+<section id="fail" class="screen"><div class="resultImage fail"><div class="alpaca">🦙</div></div><div class="resultInfo"><h2>差一點就連上了......</h2><p>羊駝剛剛想的是「<span id="answer" class="answer"></span>」</p><p><b>看來今天的入場費逃不掉啦～</b></p><button class="btn result-replay" onclick="replay()">再玩一次</button><p class="friendPrompt">揪朋友一起來猜猜看 ♡</p></div></section>
+</main><script>const items=['草莓蛋糕','一杯甜酒','奶酥餅乾','葡萄果盤'];let playerChoice=null,alpacaChoice=null;function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const target=document.getElementById(id);target.classList.add('active');target.scrollTop=0}function showRules(){go('rules');const box=document.getElementById('typebox'),btn=document.getElementById('ruleBtn');btn.classList.remove('show');const text='想進甜心趴？\n先猜中羊駝的心 ♡\n\n猜對了，直接入場！\n沒猜中？那就交個入場費吧～';box.textContent='';let i=0;const timer=setInterval(()=>{box.textContent+=text[i++]||'';if(i>=text.length){clearInterval(timer);setTimeout(()=>btn.classList.add('show'),350)}},42)}function choose(i){playerChoice=i;alpacaChoice=Math.floor(Math.random()*items.length);go('connect');setTimeout(()=>{if(playerChoice===alpacaChoice){go('success')}else{document.getElementById('answer').textContent=items[alpacaChoice];go('fail')}},1900)}function replay(){playerChoice=null;alpacaChoice=null;go('game')}</script>
+<footer id="alcoholWarning" class="alcohol-warning" aria-label="酒類警語暫留區">
+  <span>警語區 10%</span>
+</footer>
+
+</body></html>
